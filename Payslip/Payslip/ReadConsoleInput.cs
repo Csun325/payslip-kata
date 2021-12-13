@@ -4,7 +4,7 @@ using Payslip.Interfaces;
 
 namespace Payslip
 {
-    public class ReadConsoleInput
+    public class ReadConsoleInput : IConsoleInput
     {
         private readonly IReadInput _input;
         
@@ -65,7 +65,7 @@ namespace Payslip
         public string ReadDate()
         {
             var inputString = _input.GetString();
-            const string format = "d MMMM";
+            const string format = "dd MMMM";
             if (DateTime.TryParseExact(inputString, format, CultureInfo.InvariantCulture, 
                 DateTimeStyles.None, out _))
             {
@@ -73,7 +73,7 @@ namespace Payslip
             }
             else
             {
-                throw new ArgumentException("Incorrect format, example = '1 March'");
+                throw new ArgumentException("Incorrect format, example = '01 March'");
             }
             
         }

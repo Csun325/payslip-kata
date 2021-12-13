@@ -1,10 +1,17 @@
+using Payslip.Interfaces;
+
 namespace Payslip
 {
     public class Factory
     {
-        public static GetInput CreateGetInput()
+        private static GetInput CreateGetInput()
         {
             return new GetInput();
+        }
+
+        public static IConsoleInput CreateConsoleInput()
+        {
+            return new ReadConsoleInput(CreateGetInput());
         }
     }
 }

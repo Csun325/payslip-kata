@@ -35,7 +35,7 @@ namespace Payslip.Tests
         {
             //arrange
             var reader = new ReadConsoleInput(new MockGetInput());
-            var expected = "1 March";
+            var expected = "01 March";
             //action
             var actual = reader.ReadDate();
             //assert
@@ -50,7 +50,7 @@ namespace Payslip.Tests
             //action
             //assert
             var exception = Assert.Throws<ArgumentException>(() => reader.ReadDate());
-            Assert.Equal("Incorrect format, example = '1 March'", exception.Message);
+            Assert.Equal("Incorrect format, example = '01 March'", exception.Message);
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace Payslip.Tests
             //action
             //assert
             var exception = Assert.Throws<ArgumentException>(() => reader.ReadDate());
-            Assert.Equal("Incorrect format, example = '1 March'", exception.Message);
+            Assert.Equal("Incorrect format, example = '01 March'", exception.Message);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace Payslip.Tests
             //action
             //assert
             var exception = Assert.Throws<ArgumentException>(() => reader.ReadDate());
-            Assert.Equal("Incorrect format, example = '1 March'", exception.Message);
+            Assert.Equal("Incorrect format, example = '01 March'", exception.Message);
         }
         
     }

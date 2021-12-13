@@ -7,7 +7,7 @@ namespace Payslip.Tests
        
         public string? GetString()
         {
-            return "1 March";
+            return "500";
         }
         
     }
