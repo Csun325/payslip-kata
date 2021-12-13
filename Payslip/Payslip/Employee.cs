@@ -30,28 +30,30 @@ namespace Payslip
 
         public void GenerateInput()
         {
-            Console.WriteLine("Please input your name: ");
+            Console.Write("\nPlease input your name: ");
             firstName = _consoleInput.ReadName();
-            Console.WriteLine("Please input your surname: ");
+            Console.Write("Please input your surname: ");
             surname = _consoleInput.ReadName();
-            Console.WriteLine("Please enter your annual salary: ");
+            Console.Write("Please enter your annual salary: ");
             annualSalary = _consoleInput.ReadNumber();
-            Console.WriteLine("Please enter your super rate: ");
+            Console.Write("Please enter your super rate: ");
             super = _consoleInput.ReadNumber();
-            Console.WriteLine("Please enter your payment start date: ");
+            Console.Write("Please enter your payment start date: ");
             startDate = _consoleInput.ReadDate();
-            Console.WriteLine("Please enter your payment end date: ");
+            Console.Write("Please enter your payment end date: ");
             endDate = _consoleInput.ReadDate();
         }
 
         public void CalculatePayslip()
         {
-            fullname = _calculator.GetFullName(firstName, surname);
-            payPeriod = _calculator.GetPayPeriod(startDate, endDate);
-            grossIncome = _calculator.GetGrossIncome(annualSalary);
-            incomeTax = _calculator.GetIncomeTax(annualSalary);
-            netIncome = _calculator.GetNetIncome(grossIncome, incomeTax);
-            superCalc = _calculator.GetSuper(grossIncome, super);
+            fullname = Calculator.GetFullName(firstName, surname);
+            payPeriod = Calculator.GetPayPeriod(startDate, endDate);
+            grossIncome = Calculator.GetGrossIncome(annualSalary);
+            incomeTax = Calculator.GetIncomeTax(annualSalary);
+            netIncome = Calculator.GetNetIncome(grossIncome, incomeTax);
+            superCalc = Calculator.GetSuper(grossIncome, super);
+            
+            Console.WriteLine("\nYour payslip has been generated: \n");
         }
     }
 }

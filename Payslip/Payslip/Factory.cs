@@ -9,9 +9,24 @@ namespace Payslip
             return new GetInput();
         }
 
-        public static IConsoleInput CreateConsoleInput()
+        private static IConsoleInput CreateConsoleInput()
         {
             return new ReadConsoleInput(CreateGetInput());
+        }
+
+        private static Calculator CreateCalculator()
+        {
+            return new Calculator();
+        }
+
+        public static Employee CreateEmployee()
+        {
+            return new Employee(CreateConsoleInput(), CreateCalculator());
+        }
+
+        public static PrintConsoleOutput CreateConsoleOutput(Employee employee)
+        {
+            return new PrintConsoleOutput(employee);
         }
     }
 }

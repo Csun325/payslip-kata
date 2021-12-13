@@ -1,5 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
 
-using System;
+namespace Payslip
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to the payslip generator!");
 
-Console.WriteLine("Hello, World!");
+            var employee1 = Factory.CreateEmployee();
+            employee1.GenerateInput();
+            employee1.CalculatePayslip();
+            var printOutput = Factory.CreateConsoleOutput(employee1);
+            printOutput.PrintPayslipToConsole();
+        }
+    }
+}
+

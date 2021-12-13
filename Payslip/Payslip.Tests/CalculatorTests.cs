@@ -17,7 +17,7 @@ namespace Payslip.Tests
         {
             //arrange
             //action
-            var result = _calc.GetFullName("John", "Doe");
+            var result = Calculator.GetFullName("John", "Doe");
             //assert
             Assert.Equal("John Doe", result);
         }
@@ -26,7 +26,7 @@ namespace Payslip.Tests
         public void GetPayPeriod_WhenInputIsValid_ReturnPeriodWithDashInBetween()
         {
             //action
-            var result = _calc.GetPayPeriod("01 March", "31 March");
+            var result = Calculator.GetPayPeriod("01 March", "31 March");
             //assert
             Assert.Equal("01 March – 31 March", result);
         }
@@ -35,7 +35,7 @@ namespace Payslip.Tests
         public void GetGrossIncome_WhenInputIsValid_ReturnCorrectIntOutput()
         {
             //action
-            var result = _calc.GetGrossIncome(60050);
+            var result = Calculator.GetGrossIncome(60050);
             //assert
             Assert.Equal(5004, result);
         }
@@ -49,7 +49,7 @@ namespace Payslip.Tests
             int annualSalary, int tax)
         {
             //action
-            var result = _calc.GetIncomeTax(annualSalary);
+            var result = Calculator.GetIncomeTax(annualSalary);
             //assert
             Assert.Equal(tax,result);
         }
@@ -59,7 +59,7 @@ namespace Payslip.Tests
         public void GetNetIncome_WhenInputIsValid_ReturnCorrectOutput()
         {
             //action
-            var result = _calc.GetNetIncome(5004, 922);
+            var result = Calculator.GetNetIncome(5004, 922);
             //assert
             Assert.Equal(4082, result);
         }
@@ -68,7 +68,7 @@ namespace Payslip.Tests
         public void GetSuper_WhenInputIsValid_ReturnCorrectOutput()
         {
             //action
-            var result = _calc.GetSuper(5004, 9);
+            var result = Calculator.GetSuper(5004, 9);
             //assert
             Assert.Equal(450, result);
         }

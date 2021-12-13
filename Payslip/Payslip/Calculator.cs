@@ -9,26 +9,25 @@ namespace Payslip
         
         public Calculator()
         {
-           
         }
 
-        public string GetFullName(string firstName, string surname)
+        public static string GetFullName(string firstName, string surname)
         {
             return firstName + " " + surname;
         }
 
-        public string GetPayPeriod(string startDate, string endDate)
+        public static string GetPayPeriod(string startDate, string endDate)
         {
             return startDate + " – " + endDate;
         }
 
-        public int GetGrossIncome(int annualSalary)
+        public static int GetGrossIncome(int annualSalary)
         {
             var result = annualSalary / Month;
             return annualSalary / Month;
         }
 
-        public int GetIncomeTax(int annualSalary)
+        public static int GetIncomeTax(int annualSalary)
         {
             var incomeTax = 0.0;
             switch (annualSalary)
@@ -52,12 +51,12 @@ namespace Payslip
             return (int) Math.Round(incomeTax, MidpointRounding.AwayFromZero);
         }
 
-        public int GetNetIncome(int grossIncome, int incomeTax)
+        public static int GetNetIncome(int grossIncome, int incomeTax)
         {
             return grossIncome - incomeTax;
         }
 
-        public int GetSuper(int grossIncome, int super)
+        public static int GetSuper(int grossIncome, int super)
         {
             return grossIncome * super / 100;
         }

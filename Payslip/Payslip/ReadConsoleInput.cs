@@ -31,7 +31,7 @@ namespace Payslip
                 }
             }
 
-            return input;
+            return input!;
         }
 
         
@@ -65,15 +65,17 @@ namespace Payslip
         public string ReadDate()
         {
             var inputString = _input.GetString();
-            const string format = "dd MMMM";
+            DateTime dateTime;
+            const string format = "d MMMM";
             if (DateTime.TryParseExact(inputString, format, CultureInfo.InvariantCulture, 
-                DateTimeStyles.None, out _))
+                DateTimeStyles.None, out dateTime))
             {
-                return inputString;
+                return dateTime.ToString("dd MMMM");
+                
             }
             else
             {
-                throw new ArgumentException("Incorrect format, example = '01 March'");
+                throw new ArgumentException("Incorrect format, example = '1 March'");
             }
             
         }
